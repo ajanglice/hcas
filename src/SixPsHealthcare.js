@@ -10,15 +10,16 @@ const SixPsHealthcare = () => {
       title: 'Patients',
       icon: '👤',
       challenges: [
+        'High demand has led to shortages, affecting patients with diabetes',
         'Access barriers due to high cost and insurance restrictions',
         'Managing side effects like nausea and gastrointestinal issues',
         'Uncertainty about long-term maintenance after stopping medication',
-        'Distinguishing between weight loss benefits and diabetes management needs'
       ],
       opportunities: [
         'Significant weight loss results (15-20% of body weight)',
         'Improved glycemic control for those with type 2 diabetes',
         'Potential reduction in cardiovascular risk factors',
+        'May help protect the kidneys in patients with chronic kidney disease',
         'Reduced comorbidities associated with obesity'
       ]
     },
@@ -30,7 +31,8 @@ const SixPsHealthcare = () => {
         'Navigating insurance approvals and prior authorizations',
         'Managing supply shortages and rationing care decisions',
         'Determining appropriate patient selection criteria',
-        'Monitoring for and managing potential side effects'
+        'Monitoring for and managing potential side effects',
+        'Long-term health impacts are not yet fully understood'
       ],
       opportunities: [
         'New effective tool for treating obesity as a chronic disease',
@@ -58,7 +60,7 @@ const SixPsHealthcare = () => {
     },
     {
       id: 'policymakers',
-      title: 'Policymakers',
+      title: 'Policy',
       icon: '🏛️',
       challenges: [
         'Addressing medication shortages and supply chain issues',
@@ -92,7 +94,7 @@ const SixPsHealthcare = () => {
     },
     {
       id: 'employer',
-      title: 'Employer',
+      title: 'emPloyer',
       icon: '🏢',
       challenges: [
         'Managing increasing pharmacy benefit costs',

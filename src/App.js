@@ -49,7 +49,7 @@ const HealthAnalyticsDashboard = () => {
               onClick={() => setActiveTab('picots')}
               className={`tab ${activeTab === 'picots' ? 'active' : ''}`}
             >
-              PICOTS Framework
+              Treatment Study Assessment
             </button>
             <button
               onClick={() => setActiveTab('rwerct')}
@@ -136,7 +136,7 @@ const ScreeningCalculator = () => {
 
   return (
     <div className="screening-calculator">
-      <h2>Interactive Screening Test Calculator</h2>
+      <h2>Screening Test Calculator</h2>
       <p className="description">
         Enter the values for your 2x2 contingency table to calculate sensitivity, specificity, 
         positive predictive value (PPV), and negative predictive value (NPV).

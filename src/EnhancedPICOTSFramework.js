@@ -524,7 +524,7 @@ const EnhancedPICOTSFramework = () => {
 
   return (
     <div className="picots-framework">
-      <h2>Enhanced PICOTS Framework Analysis</h2>
+      <h2>Treatment Study Assessment</h2>
       
       <div className="tab-switcher">
         <button 
