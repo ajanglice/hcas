@@ -81,7 +81,7 @@ const HealthAnalyticsDashboard = () => {
       </main>
 
       <footer className="dashboard-footer">
-        <p>Created for HCAS Final Challenge - Winter 2025</p>
+        <p>Created by Alice Jang for HCAS Final Challenge - Winter 2025</p>
       </footer>
     </div>
   );
