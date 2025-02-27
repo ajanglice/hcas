@@ -36,3 +36,133 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Enhanced Header Styles */
+.dashboard-header {
+  background: linear-gradient(135deg, #005b96 0%, #03396c 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-header .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+/* Add these styles to your existing styles.css file */
+
+/* Header Animations */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Enhanced Header Styles */
+.dashboard-header {
+  background: linear-gradient(135deg, #4a90e2 0%, #2c65b1 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeSlideDown 0.8s ease-out forwards;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  opacity: 0;
+  letter-spacing: 0.03em;
+  animation: fadeIn 0.8s ease-out 0.6s forwards;
+}
+
+.header-icon {
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.1s forwards;
+}
+
+/* Semester badge/chip styling */
+.semester-badge {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.8s forwards;
+}
+
+/* Optional: Add a decorative element */
+.dashboard-header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 0.75rem auto 0;
+  border-radius: 3px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.9s forwards;
+}
+
+/* You can add these to your existing styles.css file */

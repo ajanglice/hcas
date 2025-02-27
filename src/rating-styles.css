@@ -1,0 +1,117 @@
+/* Completely redone rating boxes CSS */
+
+/* New layout system */
+.rating-container {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 16px !important;
+  margin-bottom: 25px !important;
+  width: 100% !important;
+}
+
+/* Individual rating box */
+.rating-box {
+  flex: 1 1 0 !important; /* Forces equal width */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 140px !important;
+  border-radius: 8px !important;
+  padding: 20px 15px !important;
+  border: 2px solid #e0e0e0 !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Label styling */
+.rating-label-box {
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  margin-bottom: 12px !important;
+  color: #333 !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Description styling */
+.rating-description {
+  font-size: 14px !important;
+  color: #666 !important;
+  line-height: 1.4 !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Color coding for ratings */
+.rating-box.high {
+  border-top: 4px solid #4caf50 !important;
+}
+.rating-box.high .rating-label-box {
+  color: #2e7d32 !important;
+}
+
+.rating-box.moderate {
+  border-top: 4px solid #ffc107 !important;
+}
+.rating-box.moderate .rating-label-box {
+  color: #f57c00 !important;
+}
+
+.rating-box.low {
+  border-top: 4px solid #f44336 !important;
+}
+.rating-box.low .rating-label-box {
+  color: #c62828 !important;
+}
+
+/* Hover states */
+.rating-box:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+.rating-box.high:hover {
+  border-color: #4caf50 !important;
+  background-color: rgba(76, 175, 80, 0.05) !important;
+}
+
+.rating-box.moderate:hover {
+  border-color: #ffc107 !important;
+  background-color: rgba(255, 193, 7, 0.05) !important;
+}
+
+.rating-box.low:hover {
+  border-color: #f44336 !important;
+  background-color: rgba(244, 67, 54, 0.05) !important;
+}
+
+/* Selected states */
+.rating-box.selected {
+  transform: translateY(-3px) !important;
+}
+
+.rating-box.high.selected {
+  border-color: #4caf50 !important;
+  background-color: rgba(76, 175, 80, 0.1) !important;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2) !important;
+}
+
+.rating-box.moderate.selected {
+  border-color: #ffc107 !important;
+  background-color: rgba(255, 193, 7, 0.1) !important;
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.2) !important;
+}
+
+.rating-box.low.selected {
+  border-color: #f44336 !important;
+  background-color: rgba(244, 67, 54, 0.1) !important;
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.2) !important;
+}

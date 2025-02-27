@@ -1,0 +1,595 @@
+/* Global styles to enhance the entire component */
+.picots-framework {
+  --primary-gradient: linear-gradient(135deg, #4a90e2, #67b26f);
+  --high-gradient: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  --moderate-gradient: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%);
+  --low-gradient: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+  --control-color: #4a90e2;
+  --chance-color: #f2994a;
+  --context-color: #56ab2f;
+  --neutral-bg: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Animations for the elements */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Apply animations to different elements */
+.score-circle-container {
+  animation: scale-in 0.6s ease forwards;
+}
+
+.component-meter {
+  animation: slide-in-right 0.5s ease forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+  opacity: 0;
+}
+
+.summary-card, .recommendation-card {
+  animation: fade-in 0.5s ease forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+  opacity: 0;
+}
+
+/* Card hover effects */
+.summary-card:hover .card-icon,
+.recommendation-card:hover .recommendation-icon {
+  transform: scale(1.2) rotate(5deg);
+  transition: transform 0.3s ease;
+}
+
+/* Interactive elements */
+.meter-bar-container {
+  cursor: pointer;
+  position: relative;
+}
+
+.meter-bar-container:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+/* Score circle pulse effect */
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+}
+
+.score-circle.high-quality {
+  animation: glowing 2s infinite;
+}
+
+/* Additional styles for the recommendation cards */
+.recommendation-card {
+  border-left: 4px solid transparent;
+}
+
+.recommendation-card.control { border-left-color: var(--control-color); }
+.recommendation-card.chance { border-left-color: var(--chance-color); }
+.recommendation-card.context { border-left-color: var(--context-color); }
+
+/* Action buttons with hover effects */
+.action-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.action-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.action-button:hover::after {
+  transform: translateX(0);
+}
+
+/* Responsive typography */
+@media (max-width: 576px) {
+  .results-title, .summary-title, .recommendations-title {
+    font-size: 1.4rem;
+  }
+  
+  .score-value {
+    font-size: 2.5rem;
+  }
+  
+  .quality-rating {
+    font-size: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+}
+
+/* ===== Quality Assessment Results ===== */
+.assessment-results {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.assessment-results::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #4a90e2, #67b26f);
+}
+
+.results-title, .summary-title, .recommendations-title {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.results-title::after, .summary-title::after, .recommendations-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90e2, #67b26f);
+}
+
+/* ===== Score Dashboard ===== */
+.quality-score-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.score-circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 220px;
+}
+
+.score-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.score-circle::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+  opacity: 0.5;
+}
+
+.score-circle.high-quality {
+  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+}
+
+.score-circle.medium-quality {
+  background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%);
+}
+
+.score-circle.low-quality {
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.score-value {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+.quality-rating {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+}
+
+/* ===== Component Meters ===== */
+.quality-components {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.component-meter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease;
+}
+
+.component-meter:hover {
+  transform: translateX(5px);
+}
+
+.component-label {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.component-icon {
+  font-size: 1.2rem;
+}
+
+.component-name {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.meter-bar-container {
+  flex: 1;
+  height: 12px;
+  background-color: #f1f1f1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.meter-bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease-in-out;
+}
+
+.meter-bar.high {
+  background: linear-gradient(90deg, #48b1bf, #06beb6);
+}
+
+.meter-bar.moderate {
+  background: linear-gradient(90deg, #f2994a, #f2c94c);
+}
+
+.meter-bar.low {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
+}
+
+.component-value {
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.component-value.high {
+  color: #06beb6;
+}
+
+.component-value.moderate {
+  color: #f2994a;
+}
+
+.component-value.low {
+  color: #ff5f6d;
+}
+
+.component-value.not_assessed {
+  color: #adb5bd;
+}
+
+/* ===== Assessment Summary ===== */
+.three-cs-summary {
+  margin-top: 40px;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.summary-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+
+.summary-card.high::before {
+  background: linear-gradient(90deg, #43cea2, #185a9d);
+}
+
+.summary-card.moderate::before {
+  background: linear-gradient(90deg, #f2994a, #f2c94c);
+}
+
+.summary-card.low::before {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
+}
+
+.summary-card.not_assessed::before {
+  background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+  opacity: 0.3;
+}
+
+.card-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.card-rating {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+}
+
+.card-rating.high {
+  background: linear-gradient(90deg, #43cea2, #185a9d);
+}
+
+.card-rating.moderate {
+  background: linear-gradient(90deg, #f2994a, #f2c94c);
+}
+
+.card-rating.low {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
+}
+
+.card-rating.not_assessed {
+  background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+  opacity: 0.5;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-question {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.card-aka {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.card-aka span {
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+/* ===== Recommendations ===== */
+.recommendations {
+  margin-top: 40px;
+}
+
+.recommendations-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.recommendation-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendation-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+.recommendation-card.control::after { background: linear-gradient(90deg, #4a90e2, #5b6ceb); }
+.recommendation-card.chance::after { background: linear-gradient(90deg, #f2994a, #f2c94c); }
+.recommendation-card.context::after { background: linear-gradient(90deg, #56ab2f, #a8e063); }
+.recommendation-card.high::after { background: linear-gradient(90deg, #43cea2, #185a9d); }
+.recommendation-card.medium::after { background: linear-gradient(90deg, #f2994a, #f2c94c); }
+.recommendation-card.low::after { background: linear-gradient(90deg, #ff5f6d, #ffc371); }
+
+.recommendation-card:hover {
+  transform: translateY(-5px);
+}
+
+.recommendation-icon {
+  font-size: 1.5rem;
+  background-color: #f8f9fa;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.recommendation-content {
+  flex: 1;
+}
+
+.recommendation-content h5 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.recommendation-content p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== Actions ===== */
+.assessment-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  justify-content: flex-end;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.action-button.print {
+  background: linear-gradient(135deg, #4a90e2, #5b6ceb);
+}
+
+.action-button.share {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.button-icon {
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .quality-score-dashboard {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .summary-cards, .recommendations-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .assessment-actions {
+    flex-direction: column;
+  }
+}

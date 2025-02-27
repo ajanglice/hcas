@@ -1,0 +1,84 @@
+/* RippleEffects.css */
+
+.ripple-effect {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.button-pulse {
+  animation: button-pulse 0.8s ease-in-out;
+}
+
+@keyframes button-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); background-color: #3672be; }
+  100% { transform: scale(1); }
+}
+
+.analyze-complete {
+  background-color: #4caf50 !important;
+  transition: background-color 0.3s ease;
+}
+
+.highlight-fix {
+  animation: highlight-animation 1.5s ease;
+}
+
+@keyframes highlight-animation {
+  0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+  30% { box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); }
+  70% { box-shadow: 0 0 0 5px rgba(74, 144, 226, 0.3); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+}
+
+.rating-box.hovered {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.rating-box.just-selected {
+  animation: select-pulse 0.3s ease;
+}
+
+@keyframes select-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.recommendation-item {
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.recommendation-item:hover {
+  transform: translateX(5px);
+}
+
+.recommendation-item:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #4a90e2;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.recommendation-item:hover:before {
+  opacity: 1;
+}
