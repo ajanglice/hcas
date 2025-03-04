@@ -47,12 +47,12 @@ const EnhancedPICOTSFramework = () => {
 
   // Examples for each section
   const examples = {
-    population: "Adults aged 40-75 with diagnosed hypertension (systolic BP ≥140 mmHg) without history of cardiovascular disease",
-    intervention: "Mindfulness-based stress reduction program consisting of 8 weekly 2-hour group sessions plus daily 30-minute home practice",
-    comparison: "Wait-list control group receiving standard hypertension medication management only",
-    outcomes: "Primary: Change in systolic blood pressure at 12 weeks. Secondary: Self-reported stress levels measured by PSS-10 scale",
-    timing: "Assessments at baseline, 8 weeks (post-intervention), and 6-month follow-up",
-    setting: "Three urban primary care clinics serving diverse socioeconomic populations"
+    population: "Adult ambulatory females, aged 18-45 with diagnosed postpartum depression (PPD) with a baseline HAMD-17 score of 26 or higher",
+    intervention: "Zuranolone 30 mg, administered orally every evening for 2 weeks",
+    comparison: "Placebo tablet, administered orally every evening for 2 weeks",
+    outcomes: "Primary: Change in HAMD-17 score at day 15. Secondary: Change in HAMD-17 score at other time points.",
+    timing: "45 day study period post-randomization",
+    setting: "US centers"
   };
 
   // Options for 3 C's assessment
